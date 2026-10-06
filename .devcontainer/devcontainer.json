@@ -1,0 +1,43 @@
+{
+  "name": "Bitnami Spark 3.5 (PySpark + JupyterLab)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "forwardPorts": [8888, 4040, 4041, 4042],
+  "portsAttributes": {
+    "8888": {
+      "label": "JupyterLab",
+      "onAutoForward": "openBrowserOnce",
+      "requireLocalPort": true
+    },
+    "4040": {
+      "label": "Spark UI",
+      "onAutoForward": "notify",
+      "requireLocalPort": true
+    },
+    "4041": {
+      "label": "Spark UI (2nd context)",
+      "onAutoForward": "silent"
+    },
+    "4042": {
+      "label": "Spark UI (3rd context)",
+      "onAutoForward": "silent"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "silent"
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder}/data,target=/workspace/data,type=bind",
+    "source=${localWorkspaceFolder}/notebooks,target=/workspace/notebooks,type=bind"
+  ],
+  "overrideCommand": false,
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-toolsai.jupyter"]
+    }
+  },
+  "postCreateCommand": "python -c \"import pyspark, sys; print('PySpark', pyspark.__version__)\""
+}

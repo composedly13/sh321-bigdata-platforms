@@ -1,0 +1,5 @@
+# GitHub 100MB 제한 초과 (308MB)
+data/fhvhv_tripdata_2020-03_short.csv
+
+.ipynb_checkpoints/
+__pycache__/
