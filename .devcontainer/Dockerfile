@@ -1,6 +1,6 @@
 FROM bitnamilegacy/spark:3.5
 USER 0
-RUN install_packages curl ca-certificates \
+RUN install_packages curl ca-certificates git \
  && pip install --no-cache-dir \
       "jupyterlab>=4.2" "pandas>=2.2" "numpy>=1.26" "matplotlib>=3.8" \
       "pyarrow>=15.0" "ipywidgets>=8.1" findspark

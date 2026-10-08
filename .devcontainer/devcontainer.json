@@ -39,5 +39,5 @@
       "extensions": ["ms-python.python", "ms-toolsai.jupyter"]
     }
   },
-  "postCreateCommand": "python -c \"import pyspark, sys; print('PySpark', pyspark.__version__)\""
+  "postCreateCommand": "git config --system --add safe.directory ${containerWorkspaceFolder} && python -c \"import pyspark, sys; print('PySpark', pyspark.__version__)\""
 }
